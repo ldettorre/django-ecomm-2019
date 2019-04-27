@@ -1,3 +1,55 @@
-form {
+body {
+    padding-top:50px;
+}
+    
+    form {
     width:50%;
+}
+
+.badge {
+    padding-left:8px;
+    padding-right:8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: pink;
+}
+
+/*Background position center center makes it centered within the div. The margin setting below
+ centers the div within other divs*/
+.product {
+    background-size: contain;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+caption p {
+    word-wrap: break-word;
+}
+
+.row .row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.panel-default {
+    border-color: transparent;
+    padding: 0 10px;
+}
+
+.panel-body {
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.product-description {
+    min-height: 40px;
 }
