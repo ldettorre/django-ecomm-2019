@@ -1,0 +1,1 @@
+web: gunicorn e-comm-2019.wsgi:application
