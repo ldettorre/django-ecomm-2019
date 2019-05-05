@@ -139,7 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 AWS_S3_OBJECT_PARAMETERS = {
-    'Expires' : 'Thu, 21 Dec 2099 20:00:00 GMT',
+    'Expires' : 'Thu, 31 Dec 2099 20:00:00 GMT',
     'CacheControl' : 'max-age=99999999'
 }
 AWS_STORAGE_BUCKET_NAME = 'e-comm-2019'
@@ -164,5 +164,5 @@ MEDIA_URL = '/media/'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
-STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
-STRIPE_SECRET = os.getenv("STRIPE_SECRET")
+STRIPE_PUBLISHABLE = os.environ.get("STRIPE_PUBLISHABLE")
+STRIPE_SECRET = os.environ.get("STRIPE_SECRET")

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
 class UserLoginForm(forms.Form):
-    """Form ot be used for logging users in"""
+    """Form to be used for logging users in"""
     
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
