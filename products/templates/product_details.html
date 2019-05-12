@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="panel-body">
+                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+                    <h3> {{ product.name }}</h3>
+                    <p class="product-description">Description: {{ product.description }}</p>
+                    <p>{{ product.price }}</p>
+</div>
+{% endblock %}
