@@ -3,25 +3,19 @@
 <div class="row row-flex">
     
         {% for product in products %}
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <!--<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">-->
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <div class="panel-body">
-                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-                    <h3> {{ product.name }}</h3>
-                    <p class="product-description">{{ product.description }}</p>
+                <a href="{% url 'product_details' product.id %}">
+                <!--<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>-->
+                <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%"></div>
+                    <p>{{ product.name }}</p>
                     <p>{{ product.price }}</p>
-                    <form method="POST" action="{% url 'add_to_cart' product.id %}">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input name="quantity" type="number" min="1" max="99" class="form-control" placeholder="Quantity">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add</button>
-                            </span>
-                        </div>
-                    </form>
+                    </a>
                 </div>
-                <a href="{% url 'product_details' product.id %}">More Info</a>
-            </div>
+                
+            
         {% endfor %}
-    </div>
 </div>
+ 
 {% endblock %}

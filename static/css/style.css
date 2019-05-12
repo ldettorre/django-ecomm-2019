@@ -21,6 +21,7 @@ body {
 
 /*Background position center center makes it centered within the div. The margin setting below
  centers the div within other divs*/
+ 
 .product {
     background-size: contain;
     background-position: center center; 
@@ -53,3 +54,7 @@ caption p {
 .product-description {
     min-height: 40px;
 }
+
+
+
+/*----------------Cart View/*----------------*/
