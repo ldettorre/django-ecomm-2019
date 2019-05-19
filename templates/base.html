@@ -39,6 +39,7 @@
                 <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a></li>
                 <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
                 {% endif %}
+                <li><a href="{% url 'all_products' %}"><i class="fa fa-list"></i>Products</a></li>
                 <li><a href="{% url 'view_cart' %}">
                     <i class="fa fa-shopping-cart"></i>Cart
                 {% if product_count > 0 %}

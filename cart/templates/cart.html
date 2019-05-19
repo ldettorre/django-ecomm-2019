@@ -25,20 +25,15 @@
                         {{ item.product.price }}
                     </td>
                     <td>
-                        {{ item.quantity }}
-                    </td>
-                    <td>
                         <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="exampleInputAmount" class="sr-only">New Qty</label>
                                 <div class="input-group">
-                                    <div class="input-group-addon">Qty</div>
-                                    <input name="quantity" type="number" min="0" max="99" class="form-control">
-                                    <div class="input-group-addon">{{item.quantity}}</div>
+                                    <input name="quantity" type="number" min="0" max="99" class="form-control" value="{{ item.quantity }}">
+                                    <button type="submit" class="btn btn-primary .form-control-static"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
                         </form>
                     </td>
                 </tr>
@@ -55,5 +50,6 @@
     {% else %}
         <h2>Your cart is empty</h2>
     {% endif %}
+    
 
 {% endblock %}

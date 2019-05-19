@@ -10,3 +10,6 @@ def product_details(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     return render(request, "product_details.html", {"product": product})
 
+
+    
+    

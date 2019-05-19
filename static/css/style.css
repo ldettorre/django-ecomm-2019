@@ -2,7 +2,7 @@ body {
     padding-top:50px;
 }
     
-    form {
+form {
     width:50%;
 }
 
@@ -55,10 +55,21 @@ caption p {
     min-height: 40px;
 }
 
+/*----------------Nav Bar----------------*/
+.fa {
+    margin-right: 3px;
+}
 
-
-/*----------------Cart View/*----------------*/
+/*----------------Cart View----------------*/
 
 td {
-    padding:0 15px 0 15px;
+    padding:5px 15px 0 15px;
+}
+
+th {
+    text-align: center;
+}
+
+.update-btn-td {
+    padding-left: 50px;
 }
