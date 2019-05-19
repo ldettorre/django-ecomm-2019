@@ -47,6 +47,11 @@
                 {% endif %}
                 </a>
                 </li>
+                <li>
+                {% for category in all_categories %}
+                    <li><a href="">{{ category.name }}</a></li>
+                {% endfor %}
+                </li>
               </ul>
             </div>
         </div>
