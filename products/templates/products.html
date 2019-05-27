@@ -6,7 +6,6 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
                     <div class="panel-body">
                         <a href="{% url 'product_details' product.id %}">
-                        <!--<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>-->
                         <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%"></div>
                             <p>{{ product.name }}</p>
                             <p>{{ product.price }}</p>
