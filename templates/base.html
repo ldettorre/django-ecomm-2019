@@ -49,7 +49,7 @@
                 </li>
                 <li>
                 {% for category in all_categories %}
-                    <li><a href="">{{ category.name }}</a></li>
+                    <li><a href="{% url 'category' category=category.name %}">{{ category.name }}</a></li>
                 {% endfor %}
                 </li>
               </ul>
