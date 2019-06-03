@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import ContactSubmissionForm
 from .models import Contact
 
@@ -7,12 +7,11 @@ from .models import Contact
 
     
 def contact_submission(request):
-    contact = Contact
     if request.method =="POST":
         form =  ContactSubmissionForm(request.POST, request.FILES)
         if form.is_valid():
-            contact= form.save()
-        return render(request, 'index.html')
+            form.save()
+        return redirect("/")
     else:
         form = ContactSubmissionForm()
     return render(request, 'contactpage.html', {'form':form})
