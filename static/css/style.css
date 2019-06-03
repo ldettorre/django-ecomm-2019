@@ -73,3 +73,7 @@ th {
 .update-btn-td {
     padding-left: 50px;
 }
+
+.input-group .form-control:last-child{
+    margin:17px;
+}

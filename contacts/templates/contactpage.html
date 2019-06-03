@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block content %}
+
+<h1>Contact Page</h1>
+
+<form action="{% url 'contact_submission' %}" method="POST">
+    {% csrf_token %}
+    {{ form |as_bootstrap }}
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
+
+
+
+
+ {% endblock %}

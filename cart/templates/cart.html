@@ -22,7 +22,7 @@
                         {{ item.product.name }}
                     </td>
                     <td>
-                        {{ item.product.price }}
+                        €{{ item.product.price }}
                     </td>
                     <td>
                         <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
@@ -31,7 +31,9 @@
                                 <label for="exampleInputAmount" class="sr-only">New Qty</label>
                                 <div class="input-group">
                                     <input name="quantity" type="number" min="0" max="99" class="form-control" value="{{ item.quantity }}">
+                    <td>
                                     <button type="submit" class="btn btn-primary .form-control-static"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
+                    </td>
                                 </div>
                             </div>
                         </form>
