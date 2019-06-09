@@ -11,7 +11,7 @@ def contact_submission(request):
         form =  ContactSubmissionForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return redirect("/")
+        return redirect("index")
     else:
         form = ContactSubmissionForm()
     return render(request, 'contactpage.html', {'form':form})
