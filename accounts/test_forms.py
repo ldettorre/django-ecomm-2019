@@ -54,5 +54,3 @@ class TestAccountsForms(TestCase):
      })
      self.assertFalse(form.is_valid())
      self.assertEqual(form.errors['password2'], ['Passwords must match'])
-     
-     
