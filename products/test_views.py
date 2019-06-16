@@ -17,7 +17,6 @@ class TestProductViews(TestCase):
         category.save()
         product = Product(name="test item",description="This is a test of the description", price=40.00, category=category)
         product.save()
-
         product_details = self.client.get("/products/{0}".format(product.id))
         self.assertEqual(product_details.status_code, 200)
         self.assertTemplateUsed(product_details, "product_details.html")

@@ -86,10 +86,9 @@
 <p id="n17" class="stm run hide_run"><a href="#n17">17</a></p>
 <p id="n18" class="stm run hide_run"><a href="#n18">18</a></p>
 <p id="n19" class="stm run hide_run"><a href="#n19">19</a></p>
-<p id="n20" class="pln"><a href="#n20">20</a></p>
+<p id="n20" class="stm run hide_run"><a href="#n20">20</a></p>
 <p id="n21" class="stm run hide_run"><a href="#n21">21</a></p>
 <p id="n22" class="stm run hide_run"><a href="#n22">22</a></p>
-<p id="n23" class="stm run hide_run"><a href="#n23">23</a></p>
 
             </td>
             <td class="text">
@@ -112,10 +111,9 @@
 <p id="t17" class="stm run hide_run">        <span class="nam">category</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run">        <span class="nam">product</span> <span class="op">=</span> <span class="nam">Product</span><span class="op">(</span><span class="nam">name</span><span class="op">=</span><span class="str">"test item"</span><span class="op">,</span><span class="nam">description</span><span class="op">=</span><span class="str">"This is a test of the description"</span><span class="op">,</span> <span class="nam">price</span><span class="op">=</span><span class="num">40.00</span><span class="op">,</span> <span class="nam">category</span><span class="op">=</span><span class="nam">category</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="stm run hide_run">        <span class="nam">product</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t20" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t21" class="stm run hide_run">        <span class="nam">product_details</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">client</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">"/products/{0}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">product</span><span class="op">.</span><span class="nam">id</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t22" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">product_details</span><span class="op">.</span><span class="nam">status_code</span><span class="op">,</span> <span class="num">200</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertTemplateUsed</span><span class="op">(</span><span class="nam">product_details</span><span class="op">,</span> <span class="str">"product_details.html"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t20" class="stm run hide_run">        <span class="nam">product_details</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">client</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">"/products/{0}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">product</span><span class="op">.</span><span class="nam">id</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">product_details</span><span class="op">.</span><span class="nam">status_code</span><span class="op">,</span> <span class="num">200</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t22" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertTemplateUsed</span><span class="op">(</span><span class="nam">product_details</span><span class="op">,</span> <span class="str">"product_details.html"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -126,7 +124,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.3</a>,
-            created at 2019-06-15 22:43
+            created at 2019-06-16 15:31
         </p>
     </div>
 </div>
