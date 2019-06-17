@@ -77,3 +77,7 @@ th {
 .input-group .form-control:last-child{
     margin:17px;
 }
+
+td p {
+    margin:0px;
+}

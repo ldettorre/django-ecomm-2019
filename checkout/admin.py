@@ -7,5 +7,7 @@ class OrderLineAdminInLine(admin.TabularInline):
     
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineAdminInLine, )
+    list_display = ('full_name', 'contact_number', 'date')
+    search_fields = ('full_name', 'contact_number', 'date') #This allows admin to use a search feature when looking for specific contact submissions
     
 admin.site.register(Order, OrderAdmin)
