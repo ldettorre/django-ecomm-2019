@@ -60,6 +60,18 @@ caption p {
     margin-right: 3px;
 }
 
+.navbar-search-feature {
+    width:100%;
+    padding: 15px 0px 15px 0px;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-search-feature {
+      display: none;
+  }
+}
+
+
 /*----------------Cart View----------------*/
 
 td {
