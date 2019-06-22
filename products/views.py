@@ -16,6 +16,9 @@ def view_category(request, category):
     products = Product.objects.filter(category = category) #returns products filtered by chosen category.
     return render(request, "products.html", {"products":products})
 
-
+def new_in(request):
+    products = Product.objects.filter(new_in=True) # returns all the products in the db that are marked as new items
+    return render(request, "products.html", {"products":products})
+    
     
     
