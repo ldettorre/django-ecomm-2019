@@ -14,6 +14,7 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    delivery_charge = 15
     if request.method=="POST":
         order_form = OrderForm(request.POST) #contains their personal details
         payment_form = MakePaymentForm(request.POST) #contains payment information
@@ -34,7 +35,11 @@ def checkout(request):
                     quantity = quantity
                     )
                 order_line_item.save()
-            
+                #The below code add's a delivery charge of 15 EUR to all orders below or equal to 49.99
+                if total <= 49.99:
+                    total = total + delivery_charge
+                else:
+                    total = total
             try:
                 customer = stripe.Charge.create(
                     amount=int(total*100),

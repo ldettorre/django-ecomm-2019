@@ -60,6 +60,14 @@ caption p {
     margin-right: 3px;
 }
 
+.free-delivery-notice  {
+
+    color:white;
+    background-color:black;
+    padding-top:6px;
+    text-align:center;
+}
+
 .navbar-search-feature {
     width:100%;
     padding: 15px 0px 15px 0px;
@@ -73,6 +81,7 @@ caption p {
 
 
 /*----------------Cart View----------------*/
+
 
 td {
     padding:5px 15px 0 15px;
@@ -92,4 +101,10 @@ th {
 
 td p {
     margin:0px;
+}
+
+
+/*----------------Product Styling----------------*/
+.panel-body {
+    padding:0;
 }
