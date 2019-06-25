@@ -12,7 +12,7 @@ class TestProductViews(TestCase):
         page = self.client.get("/products/999")
         self.assertEqual(page.status_code, 404)
         
-    def test_product_details_page(self):
+    def test_product_details_page(self): 
         category = Category(name="Jeans")
         category.save()
         product = Product(name="test item",description="This is a test of the description", price=40.00, category=category)
