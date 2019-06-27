@@ -1,7 +1,6 @@
-# !/usr/bin/env python
 language: python
 python:
   - "3.4"
 install: "pip install -r requirements.txt"
 script:
-- DJANGO_SETTINGS_MODULE="ecommerce.settings.local" ./manage.py test
+- DJANGO_SETTINGS_MODULE="ecommerce.settings" ./manage.py test
