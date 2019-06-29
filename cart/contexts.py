@@ -10,19 +10,21 @@ def cart_contents(request):
     cart_items = []
     delivery_charge = 15
     total = 0
+    sub_total = 0
     product_count = 0
     for id, quantity in cart.items():
         product = get_object_or_404(Product, pk=id)
         total += quantity * product.price
+        sub_total += quantity * product.price
         product_count += quantity
         cart_items.append({"id":id, "quantity":quantity,"product":product})
     # The below code adds a 'delivery charge' if the total is below the minimum required
-    if total <= 49.99:
+    if total <= 50:
         total = total + delivery_charge
     else:
         total = total
         
-    return { "cart_items":cart_items, "total":total,"product_count":product_count }
+    return { "cart_items":cart_items, "total":total,"product_count":product_count,"sub_total":sub_total }
     
     
     

@@ -1,9 +1,20 @@
 from django.shortcuts import render, redirect, reverse
+from contacts.forms import ContactSubmissionForm
+from django.contrib import auth, messages
 
+# Create your views here.
 # Create your views here.
 def view_cart(request):
     """ This renders the cart contents page """
-    return render(request, "cart.html")
+    if request.method =="POST":
+        form =  ContactSubmissionForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect("index")
+    else:
+        form = ContactSubmissionForm()
+    messages.success(request,"Thanks for getting in touch. We'll get back to you as soon as possible.")
+    return render(request, "cart.html", {'form':form})
 
 
 def add_to_cart(request, id):

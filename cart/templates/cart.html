@@ -1,75 +1,135 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
-
-<div class="row row-flex">
+<div class="container">
     
-    {% if cart_items|length > 0 %}
+{% if cart_items|length > 0 %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-            </tr>
-            <tbody>
-                {% for item in cart_items %}
+    <div class="col-md-9" id="basket">
 
-                <tr>
-                    <td>
-                        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
-                    </td>
-                    <td>
-                        {{ item.product.name }}
-                    </td>
-                    <td>
-                        €{{ item.product.price }}
-                    </td>
-                    <td>
-                        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                                <div class="input-group">
-                                    <input name="quantity" type="number" min="0" max="99" class="form-control" value="{{ item.quantity }}" required>
-                    <td>
-                                    <button type="submit" class="btn btn-primary .form-control-static"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
-                    </td>
-                                </div>
-                            </div>
-                        </form>
-                    </td>
-                </tr>
-                {% endfor %}
-                
-                <tr>
-                    <td>
-                        
-                    </td>
-                    <td>
-                        Total:
-                    </td>
-                    <td>
-                        <p>€{{ total }}</p>
-                    </td>
-                    <td>
-                        
-                    </td>
-                    <td>
-                        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-                    </td>
-                </tr>
-            </tbody>
-        </thead>
-    </table>
-    
+        <div class="box">
+
+
+            <h1>Shopping cart</h1>
+            <p class="text-muted">You currently have {{ product_count }} item(s) in your cart.</p>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Product</th>
+                            <th colspan="2">Quantity</th>
+                            <th colspan="2">Unit Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>
+                                <div class="product-thumb" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+                            </td>
+                            <td>
+                                <p>{{ item.product.name }}</p>
+                            </td>
+                            <td>
+                                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                                        <div class="input-group">
+                                            <input name="quantity" type="number" min="0" max="99" class="form-control cart-input" value="{{ item.quantity }}" required>
+                                            <td>
+                                                <button type="submit" class="btn btn-primary .form-control-static">Update</button>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>€{{ item.product.price }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5">Sub-total:</th>
+                            <th colspan="2">€{{ sub_total }}</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            <!-- /.table-responsive -->
+
+
+
+            <div class="box-footer">
+                <div class="pull-left">
+                    <a href="{% url 'all_products' %}" class="btn btn-success" role="button"><span aria-hidden="true"></span>Continue Shopping</a>
+                </div>
+                <div class="pull-right">
+                    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span aria-hidden="true"></span>Checkout</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.box -->
+
+
+
+
+
+    </div>
+    <!-- /.col-md-9 -->
+
+    <div class="col-md-3">
+        <div class="box" id="order-summary">
+            <div class="box-header">
+                <h3>Order summary</h3>
+            </div>
+            <p class="text-muted">Delivery is calculated based on the values you have entered.</p>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Order subtotal</td>
+                            <th>€{{ sub_total }}</th>
+                        </tr>
+                        <tr>
+                            <td>Shipping and handling</td>
+                                {% if sub_total <= 50 %} 
+                                <th>€15.00</th>
+                                {% else %}
+                                <th><strong>FREE</strong></th>
+                                {% endif %}
+                        </tr>
+                        <tr class="total">
+                            <td>Total</td>
+                            <th>€{{ total }}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.col-md-3 -->
+
 </div>
-<div class="row">
-    <a href="{% url 'all_products' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Continue Shopping</a>
+{% else %}
+<div class="col-sm-12">
+    <h2><strong>Shopping Cart</strong></h2>
 </div>
-    {% else %}
-        <h2>Your cart is empty</h2>
-    {% endif %}
-    
+<div class="col-sm-12 empty-cart-view">
+    <p>Your cart is empty.<a href="{% url 'all_products' %}">Continue Shopping?</a></p>
+</div>
+<div class="col-sm-6 form-styling">
+    <h2><strong>Can't find something? Get in touch!</strong></h2>
+    <form action="{% url 'contact_submission' %}" method="POST">
+        {% csrf_token %} {{ form |as_bootstrap }}
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
 
-{% endblock %}
+</div>
+{% endif %}
+
+
+ {% endblock %}
+
