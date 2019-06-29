@@ -7,101 +7,110 @@
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %} {% block content %}
+<div class="container">
+    <div class="col-md-9" id="basket">
 
-<!--<table class="test-responsive-table">-->
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>Image</th>-->
-<!--                <th>Name</th>-->
-<!--                <th>Price</th>-->
-<!--                <th>Quantity</th>-->
-<!--            </tr>-->
-<!--            <tbody>-->
-<!--                {% for item in cart_items %}-->
+        <div class="box">
 
-<!--                <tr>-->
-<!--                    <td>-->
-<!--                        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        {{ item.product.name }}-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        {{ item.product.price }}-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">-->
-<!--                            {% csrf_token %}-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="exampleInputAmount" class="sr-only">New Qty</label>-->
-<!--                                <div class="input-group">-->
-<!--                                    <input name="quantity" type="number" min="0" max="99" class="form-control" value="{{ item.quantity }}" required>-->
-<!--                    <td>-->
-<!--                                    <button type="submit" class="btn btn-primary .form-control-static"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>-->
-<!--                    </td>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </form>-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--                {% endfor %}-->
-<!--                <tr>-->
-<!--                    <td>-->
 
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        Total:-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <p>€{{ total }}</p>-->
-<!--                    </td>-->
-<!--                    <td>-->
+            <h1>Shopping cart</h1>
+            <p class="text-muted">You currently have {{ product_count }} item(s) in your cart.</p>
 
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <a href="{% url 'all_products' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Continue Shopping</a>-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--            </tbody>-->
-<!--        </thead>-->
-<!--    </table>-->
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Product</th>
+                            <th colspan="2">Quantity</th>
+                            <th colspan="2">Unit Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>
+                                <div class="product-thumb" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+                            </td>
+                            <td>
+                                <p>{{ item.product.name }}</p>
+                            </td>
+                            <td>
+                                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                                        <div class="input-group">
+                                            <input name="quantity" type="number" min="0" max="99" class="form-control" value="{{ item.quantity }}" required>
+                                            <td>
+                                                <button type="submit" class="btn btn-primary .form-control-static">Update</button>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>€{{ item.product.price }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5">Sub-total:</th>
+                            <th colspan="2">€{{ sub_total }}</th>
+                        </tr>
+                    </tfoot>
+                </table>
 
-{% for item in cart_items %}
-<div class="row">
-    <div class="col-sm-4 col-xs-12">
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
-    </div>
-    <div class="col-sm-4 col-xs-12">
-        <p>Name:{{ item.product.name }}</p>
-    
-        <p>Price:{{ item.product.price }}</p>
-    
+            </div>
+            <!-- /.table-responsive -->
 
-    
-        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                <div class="input-group">
-                    
-                    <input name="quantity" type="number" min="0" max="99" class="form-control" value="{{ item.quantity }}" required>
 
-                    <button type="submit" class="btn btn-primary .form-control-static"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
+
+            <div class="box-footer">
+                <div class="pull-right">
+                    <a href="{% url 'all_products' %}" class="btn btn-success" role="button"><span aria-hidden="true"></span>Continue Shopping</a>
                 </div>
             </div>
-        </form>
+        </div>
+        <!-- /.box -->
+
     </div>
-</div>
-    {% endfor %}
+    <div class="col-md-3">
+        <div class="box" id="order-summary">
+            <div class="box-header">
+                <h3>Order summary</h3>
+            </div>
+            <p class="text-muted">Delivery is calculated based on the values you have entered.</p>
 
-    <p>€{{ total }}</p>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Order subtotal</td>
+                            <th>€{{ sub_total }}</th>
+                        </tr>
+                        <tr>
+                            <td>Shipping and handling</td>
+                            {% if sub_total <= 50 %} 
+                            <th>€15.00</th>
+                            {% else %}
+                            <th><strong>FREE</strong></th>
+                            {% endif %}
+                        </tr>
+                        <tr class="total">
+                            <td>Total</td>
+                            <th>€{{ total }}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <a href="{% url 'all_products' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Continue Shopping</a>
+        </div>
+    </div>
+    <!-- /.col-md-3 -->
+    
 
 
-
-
-
+    <div class="col-sm-12">
     <!-- Below is the form to enter payment details -->
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
         {% csrf_token %}
@@ -123,4 +132,6 @@
             <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Make Payment">
         </div>
     </form>
+    </div>
+</div>
     {% endblock %}
