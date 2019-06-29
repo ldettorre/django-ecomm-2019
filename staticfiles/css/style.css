@@ -1,0 +1,111 @@
+body {
+    padding-top:50px;
+}
+    
+form {
+    
+}
+
+
+.badge {
+    padding-left:8px;
+    padding-right:8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: pink;
+}
+
+/*Background position center center makes it centered within the div. The margin setting below
+ centers the div within other divs*/
+ 
+.product {
+    background-size: contain;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+}
+
+caption p {
+    word-wrap: break-word;
+}
+
+.row .row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.panel-default {
+    border-color: transparent;
+    padding: 0 10px;
+}
+
+.panel-body {
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.product-description {
+    min-height: 40px;
+}
+
+/*----------------Nav Bar----------------*/
+.fa {
+    margin-right: 3px;
+}
+
+.free-delivery-notice  {
+
+    color:white;
+    background-color:black;
+    padding-top:6px;
+    text-align:center;
+}
+
+.navbar-search-feature {
+    width:100%;
+    padding: 15px 0px 15px 0px;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-search-feature {
+      display: none;
+  }
+}
+
+
+/*----------------Cart View----------------*/
+
+
+td {
+    padding:5px 15px 0 15px;
+}
+
+th {
+    text-align: center;
+}
+
+.update-btn-td {
+    padding-left: 50px;
+}
+
+.input-group .form-control:last-child{
+    margin:17px;
+}
+
+td p {
+    margin:0px;
+}
+
+
+/*----------------Product Styling----------------*/
+.panel-body {
+    padding:0;
+}
+

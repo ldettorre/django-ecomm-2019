@@ -1,0 +1,34 @@
+/** Your theme modifications here **/
+
+.product-thumb {
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+/*Base html template > Topbar*/
+.delivery-offer {
+    margin:0;
+}
+
+
+/*Checkout html template > Forms*/
+.form-styling {
+    background-color:#fff;
+    padding: 20px 15px 20px 15px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+/*Cart html template > When viewing an empty cart.*/
+
+.empty-cart-view {
+    border-bottom: 1px solid grey;
+}
+
+.xyz {
+    padding-top:20px;
+}
