@@ -1,17 +1,85 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="row row-flex">
-    
-        {% for product in products %}
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel-body">
-                        <a href="{% url 'product_details' product.id %}">
-                        <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%"></div>
-                            <p>{{ product.name }}</p>
-                            <p>{{ product.price }}</p>
-                            </a>
+<div class="container">
+
+    <div class="col-md-3">
+        <!-- *** MENUS AND FILTERS ***
+ _________________________________________________________ -->
+        <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Categories</h3>
+            </div>
+
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked category-menu">
+                    <li class="active">
+                        <a href="{% url 'all_products' %}">Have a browse!<span class="badge pull-right"></span></a>
+                        <ul>
+                            {% for category in all_categories %}
+                            <li><a href="{% url 'category' category=category.name %}">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-9">
+        <div class="box">
+            <h1>Ladies</h1>
+            <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.</p>
+        </div>
+
+
+        <div class="row products">
+            {% for product in products %}
+            <div class="col-md-4 col-sm-6">
+                <div class="product">
+                    <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                                <a href="{% url 'product_details' product.id %}">
+                                                <img src="{{ MEDIA_URL }}{{ product.image }}" class="img-responsive">
+                                            </a>
+                            </div>
+                            <div class="back">
+                                <a href="{% url 'product_details' product.id %}">
+                                                <img src="{{ MEDIA_URL }}{{ product.image }}" class="img-responsive">
+                                            </a>
+                            </div>
                         </div>
-        {% endfor %}
+                    </div>
+                    <a href="{% url 'product_details' product.id %}" class="invisible">
+                                    <img src="{{ MEDIA_URL }}{{ product.image }}" class="img-responsive">
+                                </a>
+                    <div class="text">
+                        <h3><a href="{% url 'product_details' product.id %}">{{ product.name }}</a></h3>
+                        <p class="price">€{{ product.price }}</p>
+                        <p class="buttons">
+                            <a href="{% url 'product_details' product.id %}" class="btn btn-default">View detail</a>
+                        </p>
+
+                    </div>
+                    <!-- /.text -->
+                </div>
+                <!-- /.product -->
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+    </div>
 </div>
- 
+<!--/ .container-->
+
+
+
+
+
+
 {% endblock %}
