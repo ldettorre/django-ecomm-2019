@@ -23,6 +23,7 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
