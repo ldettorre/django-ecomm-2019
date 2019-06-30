@@ -84,11 +84,11 @@
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="/">Home</a>
-                    </li>
+                    <li><a href="/">Home</a></li>
                     {% for category in all_categories %}
                     <li><a href="{% url 'category' category=category.name %}">{{ category.name }}</a></li>
                     {% endfor %}
+                    <li><a href="{% url 'new_in' %}">New In</a>
                 </ul>
 
             </div>
