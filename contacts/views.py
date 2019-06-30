@@ -15,3 +15,11 @@ def contact_submission(request):
     else:
         form = ContactSubmissionForm()
     return render(request, 'contactpage.html', {'form':form})
+    
+def faq_page(request):
+    """ This will render the frequently asked questions page """
+    return render(request, "faq.html")
+    
+def about_page(request):
+    """ This will render the frequently asked questions page """
+    return render(request, "about.html")

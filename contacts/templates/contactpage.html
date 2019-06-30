@@ -1,17 +1,69 @@
-{% extends "base.html" %} 
-{% load static from staticfiles %}
-{% load bootstrap_tags %}
-{% block content %}
+{% extends "base.html" %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
 <div class="container">
-<h1>Contact Page</h1>
+    <div class="col-md-3">
+        <div class="panel panel-default sidebar-menu">
 
-<form action="{% url 'contact_submission' %}" method="POST">
-    {% csrf_token %}
-    {{ form |as_bootstrap }}
-    <button type="submit" class="btn btn-info">Submit</button>
-</form>
+            <div class="panel-heading">
+                <h3 class="panel-title">Pages</h3>
+            </div>
+
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="{% url 'about_page' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_submission' %}"></i>Contact Page</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'faq_page' %}">F.A.Q.</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- *** PAGES MENU END *** -->
+
+
+        <div class="banner">
+            <img src="{% static 'img/banner.jpg' %}" alt="sales 2014" class="img-responsive">
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+
+        <div class="box" id="contact">
+            <h1>Contact Us</h1>
+
+            <p class="lead">Are you curious about something? Do you have a question about out products?</p>
+            <p>Please feel free to contact us, our customer service center is working for you 24/7.</p>
+
+            <hr>
+
+            <form action="{% url 'contact_submission' %}" method="POST">
+                {% csrf_token %} {{ form |as_bootstrap }}
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+
+        </div>
+        
+
+
+    </div>
+    <!-- /.col-md-9 -->
+
 
 </div>
+<!-- /.container -->
 
 
- {% endblock %}
+
+
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
+<div class="container">
+    <div class="col-md-3">
+        <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Pages</h3>
+            </div>
+
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="{% url 'about_page' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_submission' %}"></i>Contact Page</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'faq_page' %}">F.A.Q.</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- *** PAGES MENU END *** -->
+
+
+        <div class="banner">
+            <img src="{% static 'img/banner.jpg' %}" alt="sales 2014" class="img-responsive">
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+
+        <div class="box" id="contact">
+            <h1>About Us.</h1>
+
+            <p class="lead">Welcome to my Full Stack Frameworks With Django Project.</p>
+            <p>Hi, my name is Luca and welcome to my Fullstack Frameworks project. To start off, please be aware, <strong>this isn't a real e-store with real products.</strong> It has been built <strong>purely for educational purposes</strong> such as demonstrating
+                my proficiency and understanding with the languages and technologies used. Also, all of the images have been taken from online resources. The first carousel consists of 3 images, the first 2 which have been taken randomly online and the
+                third from Superdry. The second carousel is of a YouTube content creator named <a href="https://www.youtube.com/user/xMadeInBrazil">Alex Costa</a>. If the original owner of these images wishes to have them removed, please contact me <a href="https://ie.linkedin.com/in/lucadettorre" target="_blank">here.</a>
+            </p>
+            <br>
+            <p>With regards to the forms and payment feature, all contact form submissions go to the admin's dashboard however these are not monitored. Also the site is not intended to take real payments so please do not use your real details. However,to test the payment functionality you can do so by using the following as the long number : 4242424242424242, for cvv use any 3 digit combination and for the expiry date use any date in the future.</p>
+            <br>
+            <p>If you wish to learn more about this project, feel free to check out the GitHub repo <a href="https://github.com/ldettorre/django-ecomm-2019" target="_blank">here.</a></p>
+
+
+        </div>
+
+
+    </div>
+    <!-- /.col-md-9 -->
+
+
+</div>
+<!-- /.container -->
+
+
+
+
+
+
+{% endblock %}

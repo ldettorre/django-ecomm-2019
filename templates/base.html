@@ -11,27 +11,27 @@
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}" type="text/css" />
     <link rel="stylesheet" href="{% static "css/owl.theme.css" %}" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
-    
+
     <!--font-awesome-->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    
-     <!-- theme stylesheet -->
+
+    <!-- theme stylesheet -->
     <link rel="stylesheet" href="{% static "css/style.blue.css" %}" type="text/css" id="theme-stylesheet" />
 
     <!-- your stylesheet with modifications -->
     <link rel="stylesheet" href="{% static "css/custom.css" %}" type="text/css" />
-    
-    
+
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    
+
     {% block head_js %} {% endblock head_js %}
-    
+
     <title>{% block page_title %}{% endblock %}</title>
 </head>
 
 <body>
-    
+    <!-- *** TOP BAR END *** -->
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer">
@@ -39,14 +39,15 @@
             </div>
             <div class="col-md-6">
                 <ul class="menu">
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                        <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a></li>
-                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
-                        {% endif %}
+                    <li><a href="{% url 'about_page' %}"></i>About</a></li>
                     <li><a href="{% url 'contact_submission' %}"></i>Contact Us</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -109,113 +110,115 @@
     <!-- /#navbar -->
 
     <!-- *** NAVBAR END *** -->
-    
-   <div id="all">
+
+    <div id="all">
 
         <div id="content">
-        
-        {% block content %} {% endblock %}
-    </div>
-    <!-- *** FOOTER *** -->
-    <div id="footer" data-animate="fadeInUp">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <h4>Pages</h4>
 
-                    <ul>
-                        <li><a href="text.html">About us</a>
-                        </li>
-                        <li><a href="text.html">Terms and conditions</a>
-                        </li>
-                        <li><a href="faq.html">FAQ</a>
-                        </li>
-                        <a href="{% url 'contact_submission' %}"></i>Contact Us</a>
-                        </li>
-                    </ul>
+            {% block content %} {% endblock %}
+            
+        </div>
+        <!-- *** FOOTER *** -->
+        <div id="footer" data-animate="fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <h4>Pages</h4>
+
+                        <ul>
+                            <li><a href="text.html">About us</a>
+                            </li>
+                            <li><a href="text.html">Terms and conditions</a>
+                            </li>
+                            <li><a href="{% url 'faq_page' %}">F.A.Q.</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contact_submission' %}"></i>Contact Us</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Top categories</h4>
+                        <ul>
+                            <li><a href="{% url 'category' category="Jeans" %}">Jeans</a></li>
+                            <li><a href="{% url 'category' category="Jackets" %}">Jackets</a></li>
+                            <li><a href="{% url 'category' category="Jumpers" %}">Jumpers</a></li>
+                        </ul>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Where to find us</h4>
+
+                        <p><strong>Obaju Ltd.</strong>
+                            <br>123 Flash Lane,
+                            <br>Central City,
+                            <br>Athens,
+                            <br>Ohio,
+                            <br>
+                            <strong>U.S.A</strong>
+                        </p>
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Stay in touch</h4>
+
+                        <p class="social">
+                            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                            <a href="{% url 'contact_submission' %}"><i class="fa fa-envelope"></i></a>
+                        </p>
+
+
+                    </div>
+                    <!-- /.col-md-3 -->
 
                 </div>
-                <!-- /.col-md-3 -->
-
-                <div class="col-md-3 col-sm-6">
-
-                    <h4>Top categories</h4>
-                    <ul>
-                        <li><a href="{% url 'category' category="Jeans" %}">Jeans</a></li>
-                        <li><a href="{% url 'category' category="Jackets" %}">Jackets</a></li>
-                        <li><a href="{% url 'category' category="Jumpers" %}">Jumpers</a></li>
-                    </ul>
-
-                </div>
-                <!-- /.col-md-3 -->
-
-                <div class="col-md-3 col-sm-6">
-
-                    <h4>Where to find us</h4>
-
-                    <p><strong>Obaju Ltd.</strong>
-                        <br>123 Flash Lane,
-                        <br>Central City,
-                        <br>Athens,
-                        <br>Ohio,
-                        <br>
-                        <strong>U.S.A</strong>
-                    </p>
-
-                    <hr class="hidden-md hidden-lg">
-
-                </div>
-                <!-- /.col-md-3 -->
-
-
-
-                <div class="col-md-3 col-sm-6">
-
-                    <h4>Stay in touch</h4>
-
-                    <p class="social">
-                        <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
-                        <a href="{% url 'contact_submission' %}"><i class="fa fa-envelope"></i></a>
-                    </p>
-
-
-                </div>
-                <!-- /.col-md-3 -->
+                <!-- /.row -->
 
             </div>
-            <!-- /.row -->
-
+            <!-- /.container -->
         </div>
-        <!-- /.container -->
-    </div>
-    <!-- /#footer -->
+        <!-- /#footer -->
 
-    <!-- *** FOOTER END *** -->
+        <!-- *** FOOTER END *** -->
 
 
 
 
-    <!-- *** COPYRIGHT ***
+        <!-- *** COPYRIGHT ***
  _________________________________________________________ -->
-    <div id="copyright">
-        <div class="container">
-            <div class="col-md-6">
-                <p class="pull-left">© 2019 Luca D'Ettorre.</p>
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2019 Luca D'Ettorre.</p>
 
-            </div>
-            <div class="col-md-6">
-                <p class="pull-right">Template by <a href="https://bootstraptemple.com">Bootstrap Temple</a>
-                    <!-- Please do not remove the backlink to us unless you have purchased the attribution-free license at https://bootstraptemple.com. It is part of the license conditions. Thanks for understanding :) -->
-                </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">Template by <a href="https://bootstraptemple.com">Bootstrap Temple</a>
+                        <!-- Please do not remove the backlink to us unless you have purchased the attribution-free license at https://bootstraptemple.com. It is part of the license conditions. Thanks for understanding :) -->
+                    </p>
+                </div>
             </div>
         </div>
+        <!-- *** COPYRIGHT END *** -->
+
     </div>
-    <!-- *** COPYRIGHT END *** -->
-    
-</div>
     <!-- /#all -->
 
     <script type="text/javascript" src="{% static "js/jquery-1.11.0.min.js" %}"></script>

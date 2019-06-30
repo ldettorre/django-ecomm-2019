@@ -9,11 +9,11 @@
     margin: 0 auto;
 }
 
-/*Base html template > Topbar*/
+/*Base html template */
+
 .delivery-offer {
     margin:0;
 }
-
 
 /*Checkout html template > Forms*/
 .form-styling {
@@ -29,6 +29,6 @@
     border-bottom: 1px solid grey;
 }
 
-.xyz {
-    padding-top:20px;
+#content #checkout .table tbody tr td input, #content #basket .table tbody tr td input {
+    width:70px;
 }

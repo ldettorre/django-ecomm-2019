@@ -1,0 +1,169 @@
+{% extends "base.html" %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
+<div class="container">
+    <div class="col-md-3">
+        <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Pages</h3>
+            </div>
+
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="{% url 'about_page' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_submission' %}"></i>Contact Page</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'faq_page' %}">F.A.Q.</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- *** PAGES MENU END *** -->
+
+
+        <div class="banner">
+            <img src="{% static 'img/banner.jpg' %}" alt="sales 2014" class="img-responsive">
+        </div>
+    </div>
+
+
+    <div class="col-md-9">
+
+
+        <div class="box" id="contact">
+            <h1>Frequently Asked Questions</h1>
+
+            <p class="lead">Are you curious about something? Do you have a question about out products?</p>
+            <p>Please feel free to contact us, our customer service center is working for you 24/7.</p>
+
+            <hr>
+
+            <div class="panel-group" id="accordion">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq1">
+
+						1. Are the items in my shopping basket reserved?
+
+					    </a>
+
+                        </h4>
+                    </div>
+                    <div id="faq1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>No, leaving items in your shopping basket does not mean they are reserved for purchase. If the order is not placed straight away this may result your order being cancelled due the items no longer being available.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel -->
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+
+						2. Do I have to pay a delivery charge?
+
+					    </a>
+
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            For orders below €50, there is a flat rate charge of €15. This applies to national and international orders. If your order exceeds €50, you will benefit from free delivery!
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel -->
+
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+
+						3. Can I return my order to one of your stores?
+
+					    </a>
+
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            You can return items purchased from our website to any of ours stores within 28 days of delivery. Items cannot be returned to a one time concession stand. All returns must be returned unopened and refunds will only be processed to the original payment
+                            card.
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.panel -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+
+						4. Do I have to pay for my return?
+
+					    </a>
+
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            We offer free returns from within the USA. If you are returning from outside of this region then the cost of return is your responsibility. We recommend using a tracked service as we do not accept any responsibility for returned goods until they have
+                            been received at our warehouse.
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel -->
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+
+						5. Have you received my return?
+
+					    </a>
+
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Please check your return tracking information to see if we have received your return. Once received please allow 7-10 working days for the return to be processed. You will receive a confirmation email once your return has been processed with a new tracking
+                            number for exchanged goods or a refund receipt.
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel -->
+
+            </div>
+            <!-- /.panel-group -->
+
+
+        </div>
+
+
+    </div>
+    <!-- /.col-md-9 -->
+</div>
+
+</div>
+<!-- /.container -->
+
+
+{% endblock %}
