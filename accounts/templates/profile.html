@@ -5,5 +5,14 @@
 {% block page_heading %} {{ user }}'s Profile {% endblock %}
 
 {% block content %}
-<p>{{ profile.email }}</p>
+<div class="container">
+<h2>Welcome to your profile page.</h2>
+
+<p>You are currently signed in with this email: {{ profile.email }}</p>
+<p>If you want to reset your password, <a href="{% url 'password_reset' %}">Click here!</a></p>
+<p>If you need to get in contact, feel free to fill out our <a href="{% url 'contact_submission' %}"> contact form.</a></p>
+
+
+        
+</div>
 {% endblock %}
