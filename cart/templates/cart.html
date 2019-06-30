@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
 <div class="container">
-    
-{% if cart_items|length > 0 %}
+
+    {% if cart_items|length > 0 %}
 
     <div class="col-md-9" id="basket">
 
@@ -93,12 +93,13 @@
                             <th>€{{ sub_total }}</th>
                         </tr>
                         <tr>
+                            <!--Below is the logic to show in the summary whether or not a delivery charge will be applied. But the real logic affecting the total is in the checkout view.-->
                             <td>Shipping and handling</td>
-                                {% if sub_total <= 50 %} 
-                                <th>€15.00</th>
-                                {% else %}
-                                <th><strong>FREE</strong></th>
-                                {% endif %}
+                            {% if sub_total <= 50 %} 
+                            <th>€15.00</th>
+                            {% else %}
+                            <th><strong>FREE</strong></th>
+                            {% endif %}
                         </tr>
                         <tr class="total">
                             <td>Total</td>
@@ -112,24 +113,23 @@
     </div>
     <!-- /.col-md-3 -->
 
-</div>
-{% else %}
-<div class="col-sm-12">
-    <h2><strong>Shopping Cart</strong></h2>
-</div>
-<div class="col-sm-12 empty-cart-view">
-    <p>Your cart is empty.<a href="{% url 'all_products' %}">Continue Shopping?</a></p>
-</div>
-<div class="col-sm-6 form-styling">
-    <h2><strong>Can't find something? Get in touch!</strong></h2>
-    <form action="{% url 'contact_submission' %}" method="POST">
-        {% csrf_token %} {{ form |as_bootstrap }}
-        <button type="submit" class="btn btn-info">Submit</button>
-    </form>
+
+    {% else %}
+    <div class="col-sm-12">
+        <h2><strong>Shopping Cart</strong></h2>
+    </div>
+    <div class="col-sm-12 empty-cart-view">
+        <p>Your cart is empty.<a href="{% url 'all_products' %}">Continue Shopping?</a></p>
+    </div>
+    <div class="col-sm-6 form-styling">
+        <h2><strong>Can't find something? Get in touch!</strong></h2>
+        <form action="{% url 'contact_submission' %}" method="POST">
+            {% csrf_token %} {{ form |as_bootstrap }}
+            <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+
+    </div>
+    {% endif %}
 
 </div>
-{% endif %}
-
-
- {% endblock %}
-
+{% endblock %}

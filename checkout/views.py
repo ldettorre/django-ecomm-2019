@@ -37,7 +37,7 @@ def checkout(request):
                     quantity = quantity
                     )
                 order_line_item.save()
-                #The below code add's a delivery charge of 15 EUR to all orders below or equal to 49
+                #The below code add's a delivery charge of 15 EUR to all orders below or equal to 50
                 if total <= 50:
                     total = total + delivery_charge
                 else:

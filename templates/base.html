@@ -37,16 +37,22 @@
             <div class="col-md-6 offer">
                 <p class="delivery-offer" data-animate-hover="shake">Get free delivery on orders over €50!</p>
             </div>
+            <!--Below is the logic that determines what to show a user based on if they are logged in or not.-->
             <div class="col-md-6">
                 <ul class="menu">
-                    <li><a href="{% url 'about_page' %}"></i>About</a></li>
-                    <li><a href="{% url 'contact_submission' %}"></i>Contact Us</a></li>
+                    <li><a href="{% url 'about_page' %}">About</a></li>
+                    <li><a href="{% url 'contact_submission' %}">Contact Us</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                     <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a></li>
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
+                    {% endif %}
+                    {% if product_count > 0 %}
+                    <li><a href="{% url 'view_cart' %}">Cart ({{ product_count }})</a></li>
+                    {% else %}
+                    <li><a href="{% url 'view_cart' %}">Cart</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -117,7 +123,8 @@
 
             {% block content %} {% endblock %}
             
-        </div>
+        </div> <!--/#content -->
+        
         <!-- *** FOOTER *** -->
         <div id="footer" data-animate="fadeInUp">
             <div class="container">
@@ -126,11 +133,11 @@
                         <h4>Pages</h4>
 
                         <ul>
-                            <li><a href="text.html">About us</a>
+                            <li>
+                                <a href="{% url 'about_page' %}">About us</a>
                             </li>
-                            <li><a href="text.html">Terms and conditions</a>
-                            </li>
-                            <li><a href="{% url 'faq_page' %}">F.A.Q.</a>
+                            <li>
+                                <a href="{% url 'faq_page' %}">F.A.Q.</a>
                             </li>
                             <li>
                                 <a href="{% url 'contact_submission' %}"></i>Contact Us</a>
