@@ -88,6 +88,7 @@ The static files are hosted on AWS S3 using a bucket with custom user and permis
 To get this project running locally, you will need to clone the repository and install the requirements.txt file. Following that, you must ensure all secret keys within the ecommerce.settings.base are set up either in an env.py file or using the .bashrc. For the likes of the Email feature and Stripe payments, you will need to obtain your own keys and place them in the app. Also be sure to have your allowed hosts updated with the address returned in the error message upon first running the app.
 
 
+
 ## Testing
 To test this project I did a mixture of manual testing and incorporated Travis C.I. When it came to manually testing, I checked that:
 
