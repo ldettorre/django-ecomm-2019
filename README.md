@@ -110,6 +110,8 @@ At the moment the site has alot of unnecessary CSS and scripts due to it being t
 
 Where datetime is used with regards to the models, it is an hour ahead of Irish Time. This is not major at the moment but something to look at for future revisions.
 
+For an unknown reason when I set DEBUG to False it still returns error messages. I currently have the config vars set up as expected so this will require more attention as it is a security issue.
+
 
 ### Credits
 
