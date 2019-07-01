@@ -13,7 +13,6 @@ def view_cart(request):
         return redirect("index")
     else:
         form = ContactSubmissionForm()
-    messages.success(request,"Thanks for getting in touch. We'll get back to you as soon as possible.")
     return render(request, "cart.html", {'form':form})
 
 
