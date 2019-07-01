@@ -1,6 +1,5 @@
 *.sqlite3
 .~c9*
-*.png
 static/
 media/
 htmlcov
